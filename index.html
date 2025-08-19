@@ -201,8 +201,28 @@
         </a>
       </div>
 
+      <div class="visitor-counter">
+        👥 Total Visitors: <span class="count" id="visitorCount">0</span>
+      </div>
+
       <p class="foot">© 2025 — Developed By HJH Tools</p>
     </section>
   </div>
+
+  <script>
+    // Simple visitor counter using localStorage
+    function updateVisitorCount() {
+      let count = localStorage.getItem('visitorCount');
+      if (!count) {
+        count = 0;
+      }
+      count = parseInt(count) + 1;
+      localStorage.setItem('visitorCount', count);
+      document.getElementById('visitorCount').textContent = count;
+    }
+    
+    // Update counter when page loads
+    window.addEventListener('load', updateVisitorCount);
+  </script>
 </body>
 </html>
